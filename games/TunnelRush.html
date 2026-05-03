@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tunnel Rush</title>
+</head>
+<body>
+    <style>
+        /* Make iframe responsive */
+        .game-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: white;
+        }
+        body {
+            background-image: url(https://usagif.com/wp-content/uploads/gif/outerspace-72.gif);
+            background-size: cover;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #61da67;
+        }
+        .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="history.back()">Go Back</button>
+    <h1>Tunnel Rush</h1>
+    <div class="game-container">
+        <iframe 
+            src="https://c6rt.github.io/Tunnel-Rush/" 
+            allowfullscreen 
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups">
+        </iframe>
+    </div>
+<button onclick="goFullscreen()">Go Fullscreen</button>
+
+<script>
+function goFullscreen() {
+    const iframe = document.querySelector('iframe');
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) { // Firefox
+        iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
+    }
+}
+</script>
+
+</body>
+</html>
